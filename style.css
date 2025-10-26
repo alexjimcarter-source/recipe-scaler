@@ -6,16 +6,26 @@ h2, h3 { color: #4CAF50; }
 .input-section, .output-section { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 label { display: block; margin: 10px 0 5px; font-weight: bold; }
 textarea, input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-.servings { display: flex; gap: 20px; justify-content: space-between; }
+.servings { display: flex; gap: 20px; justify-content: space-between; align-items: flex-end; }
+.servings label { margin-bottom: 5px; flex: 1; text-align: right; } /* Label align for desktop */
 .servings input { width: 45%; }
-.toggle { display: flex; align-items: center; gap: 10px; margin: 15px 0; }
+.toggle { display: flex; align-items: center; gap: 10px; margin: 15px 0; flex-wrap: wrap; word-break: break-word; width: 100%; } /* Full width + wrap/break for long labels */
+.toggle input[type="checkbox"] { order: -1; } /* Checkbox left on mobile */
 button { background: #4CAF50; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
 button:hover { background: #45a049; }
-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; overflow-x: auto; } /* Scroll table on mobile */
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; min-width: 80px; } /* Min width for table cells */
 th { background: #f1f1f1; }
 .affiliates { margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 4px; }
 .affiliates a { color: #4CAF50; text-decoration: none; }
 .affiliates a:hover { text-decoration: underline; }
 footer { text-align: center; padding: 10px; color: #666; }
-@media (max-width: 600px) { .servings { flex-direction: column; } .servings input { width: 100%; } }
+@media (max-width: 600px) { 
+    .servings { flex-direction: column; gap: 10px; align-items: stretch; } /* Stack clean */
+    .servings label { text-align: left; margin-bottom: 0; flex: none; } /* Labels left on mobile */
+    .servings input { width: 100%; } 
+    .toggle { flex-direction: row; gap: 8px; align-items: center; } /* Row on mobile */
+    .toggle label { font-size: 14px; line-height: 1.2; margin: 0; flex: 1; } /* Smaller text, full flex for label */
+    .container { padding: 10px; } /* Tighter padding */
+    table { font-size: 14px; } /* Smaller table text */
+}
