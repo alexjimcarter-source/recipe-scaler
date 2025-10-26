@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free recipe scaler: Paste ingredients, scale servings, convert cups to grams for baking. Instant tool for home cooks.">
+    <title>Recipe Scaler - Free Grams Converter for Baking & Cooking</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Analytics Placeholder: Paste your GA4 tag here after signup -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Scaler</h1>
+            <p>Scale your recipes & convert volumes to grams. Perfect for baking!</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <label for="recipe">Paste Your Recipe Ingredients (one per line, e.g., "2 cups flour"):</label>
+                <textarea id="recipe" rows="10" placeholder="e.g.,&#10;2 cups all-purpose flour&#10;1 cup granulated sugar&#10;1/2 tsp baking powder"></textarea>
+
+                <div class="servings">
+                    <label for="original">Original Servings:</label>
+                    <input type="number" id="original" value="4" min="1">
+
+                    <label for="desired">Desired Servings:</label>
+                    <input type="number" id="desired" value="8" min="1">
+                </div>
+
+                <label class="toggle">
+                    <input type="checkbox" id="baking-mode" checked> Baking Mode (Cups/Tsp to Grams)
+                </label>
+
+                <button onclick="scaleRecipe()">Scale It!</button>
+            </section>
+
+            <section id="output" class="output-section" style="display: none;">
+                <h2>Scaled Recipe</h2>
+                <table id="scaled-table">
+                    <thead>
+                        <tr><th>Ingredient</th><th>Original Amount</th><th>Scaled Amount</th><th>Grams (Baking Mode)</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <div class="affiliates">
+                    <h3>Pro Tip: Need Tools?</h3>
+                    <ul>
+                        <li><a href="https://amzn.to/YOUR-AFFILIATE-LINK-SCALE" target="_blank" rel="nofollow">Precision Digital Scale for Grams</a> – Essential for accuracy!</li>
+                        <li><a href="https://amzn.to/YOUR-AFFILIATE-LINK-SPOONS" target="_blank" rel="nofollow">Measuring Spoons Set</a> – Perfect for tsp/tbsp.</li>
+                        <li><a href="https://amzn.to/YOUR-AFFILIATE-LINK-CUPS" target="_blank" rel="nofollow">Glass Measuring Cups</a> – Leak-proof for liquids.</li>
+                    </ul>
+                    <p><small>Affiliate links: We earn a small commission at no extra cost to you.</small></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Recipe Scaler. Free tool powered by love (and a bit of JS).</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
