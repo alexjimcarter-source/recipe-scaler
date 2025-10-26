@@ -25,11 +25,11 @@ function scaleRecipe() {
     };
 
     lines.forEach(line => {
-        const match = line.match(/(\d+\.?\d*)\s*(cups?|tsp|tbsp|oz|ml|grams?)\s*(\w+)/i);
+        const match = line.match(/(\d+\.?\d*)\s*(cups?|tsp|tbsp|oz|ml|grams?)\s*(\w+\s*\w*)/i);
         if (match) {
             const quantity = parseFloat(match[1]);
             const unit = match[2].toLowerCase();
-            const ingredient = match[3].toLowerCase();
+            const ingredient = match[3].toLowerCase().trim();
             const scaleFactor = desiredServings / originalServings;
 
             let scaledQuantity = quantity * scaleFactor;
