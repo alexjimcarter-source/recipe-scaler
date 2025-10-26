@@ -37,10 +37,10 @@ function scaleRecipe() {
             let scaledUnit = unit;
             let weight = 'N/A';
 
-            if (bakingMode && (unit === 'cups' || unit === 'tsp' || unit === 'tbsp')) {
+            if (bakingMode && (unit === 'cup' || unit === 'cups' || unit === 'tsp' || unit === 'tbsp')) {  // Fixed: Added 'cup' singular!
                 const density = densities[ingredient] || 0;
                 if (density > 0) {
-                    if (unit === 'cups') weight = (scaledQuantity * density).toFixed(0) + 'g';
+                    if (unit === 'cup' || unit === 'cups') weight = (scaledQuantity * density).toFixed(0) + 'g';
                     else if (unit === 'tsp') weight = (scaledQuantity * density / 48).toFixed(0) + 'g'; // 1 cup = 48 tsp
                     else if (unit === 'tbsp') weight = (scaledQuantity * density / 16).toFixed(0) + 'g'; // 1 cup = 16 tbsp
                 } else {
